@@ -21,6 +21,10 @@ This project is developed in Java 17.
 # Features
 
 1. As a User, I should see a default web service ;
+   - Creation of StudentResource.java in src.main.java.fr.efrei.server.web.rest ;
+   - Creation of Hello world in a test method ;
+   - Updating the settings.gradle to fix gradle compilation
+   - Gradle compilation (_gradlew_) & Gradle run (_gradlew bootRun_)
 2. Create a Student entity ;
    - Student (ID, Name, age)
 3. Add an H2 database for the Students entity ;
