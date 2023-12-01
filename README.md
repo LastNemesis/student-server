@@ -25,6 +25,7 @@ This project is developed in Java 17.
    - Creation of Hello world in a test method ;
    - Updating the settings.gradle to fix gradle compilation
    - Gradle compilation (_gradlew_) & Gradle run (_gradlew bootRun_)
+   - Adding the GitHub Action for all branches
 2. Create a Student entity ;
    - Student (ID, Name, age)
 3. Add an H2 database for the Students entity ;
