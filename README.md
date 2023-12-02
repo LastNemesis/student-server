@@ -26,9 +26,10 @@ This project is developed in Java 17.
    - Updating the settings.gradle to fix gradle compilation
    - Gradle compilation (_gradlew_) & Gradle run (_gradlew bootRun_)
    - Adding the GitHub Action for all branches
-2. Create a Student entity ;
+2. Add an H2 database for the Students entity ;
+   - Filing the application.properties with the H2 database parameters in src.main.java.fr.efrei.resources
+3. Create a Student entity ;
    - Student (ID, Name, age)
-3. Add an H2 database for the Students entity ;
 4. Package the project in a Docker file.
 
 # Contributing
