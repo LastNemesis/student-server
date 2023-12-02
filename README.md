@@ -20,17 +20,32 @@ This project is developed in Java 17.
 
 # Features
 
-1. As a User, I should see a default web service ;
-   - Creation of StudentResource.java in src.main.java.fr.efrei.server.web.rest ;
-   - Creation of Hello world in a test method ;
+1. **As a User, I should see a default web service ;**
+   - Creation of StudentResource.java in fr.efrei.server.web.rest
+   - Creation of Hello world in a test method
    - Updating the settings.gradle to fix gradle compilation
    - Gradle compilation (_gradlew_) & Gradle run (_gradlew bootRun_)
    - Adding the GitHub Action for all branches
-2. Add an H2 database for the Students entity ;
-   - Filing the application.properties with the H2 database parameters in src.main.java.fr.efrei.resources
-3. Create a Student entity ;
+2. **Add an H2 database for the Students entity ;**
+   - Filing the application.properties with the H2 database parameters in fr.efrei.resources
+3. **Create a Student entity ;**
    - Student (ID, Name, age)
-4. Package the project in a Docker file.
+     - By creating the entity with its getters and setters in fr.efrei.server.domain
+     - By creating the schema of the SQL Table in fr.efrei.resources
+     - By creating the data file for the schema in fr.efrei.resources
+     - By filling the data with a test row in fr.efrei.resources.data.sql
+   - Creating the StudentRepository interface crespository
+   - Creating the first service in fr.efrei.server.service
+   - Editing the StudentReource in fr.efrei.server.web.rest
+     - Adding the feature that allows to read all the students of the database
+     - Adding the feature that creates a read-only student depending on the ID
+4. **Create the CRUD features for the Student entity**
+   - (C) Create
+   - (R) Read
+     - Already implemented on the feature n°3
+   - (U) Update
+   - (D) Delete
+4. **Package the project in a Docker file.**
 
 # Contributing
 
