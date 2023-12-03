@@ -89,12 +89,19 @@ public class StudentResource {
 
     // UPDATE student base on ID for Name and Age
     @PutMapping("/student/update/{id}")
-    public Student createStudent(@PathVariable Integer id, @RequestParam String name, @RequestParam Integer age) {
+    public Student updateStudent(@PathVariable Integer id, @RequestParam String name, @RequestParam Integer age) {
         Student student = studentService.updateStudent(id, name, age);
         return student;
     }
 
-
     // DELETE student based on ID
+    @DeleteMapping("student/delete/{id}")
+    public String deleteStudent(@PathVariable Integer id){
+        Integer response = studentService.deleteStudent(id);
+        if(response==1){
+            return "Student deleted.";
+        }
+        return "Student not found.";
+    }
 
 }

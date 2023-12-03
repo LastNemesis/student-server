@@ -36,6 +36,7 @@ public class StudentService {
         // Getting the student
         Student existingStudent = studentRepository.findById(id)
                 .orElse(null);
+
         // Setting the found student
         if(existingStudent!=null) {
             existingStudent.setName(name);
@@ -43,11 +44,25 @@ public class StudentService {
             return studentRepository.save(existingStudent);
         }
 
-        // If entity not found
+        // If student not found
         return null;
     }
 
     // DELETE Service
+    public Integer deleteStudent(Integer id){
+        // Getting the student
+        Student existingStudent = studentRepository.findById(id)
+                .orElse(null);
+
+        // Deleting the student
+        if(existingStudent!=null) {
+            studentRepository.delete(existingStudent);
+            return 1;
+        }
+
+        // If student not found
+        return 0;
+    }
 
 
 
