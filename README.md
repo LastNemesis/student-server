@@ -41,11 +41,29 @@ This project is developed in Java 17.
      - Adding the feature that creates a read-only student depending on the ID
 4. **Create the CRUD features for the Student entity**
    - (C) Create
+     - Adding the CREATE not persisted method - GET
+       - http://http://localhost:8080/api/studentsCreate/Matthew/22
+     - Adding the CREATE persisted method (Controller) - POST
+     - Adding the CREATE persisted method (Service) - POST
+     - Creating the sequence for the auto-incremented ID
+       - /!\ Require the use of a RESTful service (Extension RESTClient for Mozilla Firefox)
+       - curl -X POST 'http://localhost:8080/api/student/create?name=John&age=22'
    - (R) Read
-     - Already implemented on the feature n°3
+     - Partially implemented in feature n°3
+     - Refactor of the READ-One method
+     - Creation of getStudentById in studentResource and studentService
+     - curl -X GET -i http://localhost:8080/api/students
+     - curl -X GET -i http://localhost:8080/api/students/1
    - (U) Update
+     - Adding the UPDATE persisted method
+     - Adding a error-handler by returning null if student not found
+     - curl -X PUT -i 'http://localhost:8080/api/student/update/1?name=Matt&age=23'
    - (D) Delete
-4. **Package the project in a Docker file.**
+     - Adding the DELETE persisted method
+     - Adding a error-handler by returning 0/a message if student not found
+     - curl -X DELETE -i http://localhost:8080/api/student/delete/17
+5. **Create the test unit for each of the controller methods**
+6. **Package the project in a Docker file.**
 
 # Contributing
 
