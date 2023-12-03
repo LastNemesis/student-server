@@ -41,8 +41,13 @@ This project is developed in Java 17.
      - Adding the feature that creates a read-only student depending on the ID
 4. **Create the CRUD features for the Student entity**
    - (C) Create
-     - Adding the Controller and Service for the PostMapping
-     - /!\ Parameters need to be passed-down with: /api/students/create?name=Matthew&age=22
+     - Adding the CREATE not persisted method - GET
+       - http://http://localhost:8080/api/studentsCreate/Matthew/22
+     - Adding the CREATE persisted method (Controller) - POST
+     - Adding the CREATE persisted method (Service) - POST
+     - Creating the sequence for the auto-incremented ID
+       - /!\ Require the use of a RESTful service (Extension RESTClient for Mozilla Firefox)
+       - curl -X POST 'http://localhost:8080/api/student/create?name=John&age=22'
    - (R) Read
      - Partially implemented in feature n°3
      - Refactor of the READ-One method
