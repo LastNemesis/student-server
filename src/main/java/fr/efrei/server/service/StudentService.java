@@ -16,8 +16,14 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
+    // READ-All Service
     public List<Student> findAll() {
         return studentRepository.findAll();
+    }
+
+    // READ-One Service
+    public Student getStudentById(Integer id) {
+        return studentRepository.findById(id).orElse(null);
     }
 
 }

@@ -19,34 +19,38 @@ public class StudentResource {
         this.studentService = studentService;
     }
 
+    // READ-All Controller
     @GetMapping ("/students")
     public List<Student> getAllStudents() {
         return studentService.findAll();
     }
 
+    // READ student based on ID
     @GetMapping("/students/{id}")
-    public Student getStudent(@PathVariable String id) {
-        // Creating the Student entity
-        Student student = new Student();
+    public Student getStudentById(@PathVariable String id) {
 
-        // Setting the id (with Exception-Handling)
+        Integer parsedId;
+
+        // Parsing the id into Integer
         try {
             // Setting the id
-            student.setId(Integer.parseInt(id));
+            parsedId = Integer.parseInt(id);
 
         }catch (NumberFormatException e){
-
-            // Affecting the ID automatically in case
-            student.setId(100);
+            // Setting the id by default
+            parsedId = 0;
         }
 
-        // Setting the name
-        student.setName("Matthew");
-
-        // Setting the age
-        student.setAge(22);
+        // Getting the Student entity
+        Student student = studentService.getStudentById(parsedId);
 
         return student;
     }
+
+    // CREATE student based on ID, Name, Age
+
+    // UPDATE student base on ID for Name and Age
+
+    // DELETE student based on ID
 
 }

@@ -42,7 +42,9 @@ This project is developed in Java 17.
 4. **Create the CRUD features for the Student entity**
    - (C) Create
    - (R) Read
-     - Already implemented on the feature n°3
+     - Partially implemented in feature n°3
+     - Refactor of the READ-One method
+     - Creation of getStudentById in studentResource and studentService
    - (U) Update
    - (D) Delete
 4. **Package the project in a Docker file.**
