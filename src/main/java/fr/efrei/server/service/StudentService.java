@@ -26,4 +26,15 @@ public class StudentService {
         return studentRepository.findById(id).orElse(null);
     }
 
+    // CREATE Service
+    public Student createStudent(Student student){
+        return studentRepository.save(student);
+    }
+
+    // UPDATE Service
+
+    // DELETE Service
+
+
+
 }

@@ -2,8 +2,14 @@ package fr.efrei.server.web.rest;
 
 import fr.efrei.server.domain.Student;
 import fr.efrei.server.service.StudentService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -41,13 +47,28 @@ public class StudentResource {
             parsedId = 0;
         }
 
-        // Getting the Student entity
+        // Getting the Student entity in the service
         Student student = studentService.getStudentById(parsedId);
 
         return student;
     }
 
     // CREATE student based on ID, Name, Age
+    @PostMapping("/students/create")
+    public Student createStudent(@RequestParam String name, @RequestParam Integer age) {
+
+        // Creating the new student
+        Student student = new Student();
+
+        // Adding its passed-down variables
+        student.setName(name);
+        student.setAge(age);
+
+        // Creating the student entity in the service
+        Student createdStudent = studentService.createStudent(student);
+
+        return createdStudent;
+    }
 
     // UPDATE student base on ID for Name and Age
 

@@ -41,13 +41,16 @@ This project is developed in Java 17.
      - Adding the feature that creates a read-only student depending on the ID
 4. **Create the CRUD features for the Student entity**
    - (C) Create
+     - Adding the Controller and Service for the PostMapping
+     - /!\ Parameters need to be passed-down with: /api/students/create?name=Matthew&age=22
    - (R) Read
      - Partially implemented in feature n°3
      - Refactor of the READ-One method
      - Creation of getStudentById in studentResource and studentService
    - (U) Update
    - (D) Delete
-4. **Package the project in a Docker file.**
+5. **Create the test unit for each of the controller methods**
+6. **Package the project in a Docker file.**
 
 # Contributing
 
