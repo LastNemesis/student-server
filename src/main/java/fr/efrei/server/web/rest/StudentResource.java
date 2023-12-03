@@ -58,7 +58,7 @@ public class StudentResource {
     }
 
     // CREATE student (not persisted - GET request)
-    @GetMapping("/studentsCreate/{name}/{age}")
+    @GetMapping("/student/create/np/{name}/{age}")
     public Student createStudentById(@PathVariable String name, @PathVariable Integer age) {
         // Creating the new student
         Student student = new Student();
@@ -70,7 +70,7 @@ public class StudentResource {
         return student;
     }
 
-    // CREATE student based on Name, Age (ID autoincremented)
+    // CREATE student based on Name, Age (ID auto-incremented)
     @PostMapping("/student/create")
     public Student createStudent(@RequestParam String name, @RequestParam Integer age) {
 
@@ -88,6 +88,12 @@ public class StudentResource {
     }
 
     // UPDATE student base on ID for Name and Age
+    @PutMapping("/student/update/{id}")
+    public Student createStudent(@PathVariable Integer id, @RequestParam String name, @RequestParam Integer age) {
+        Student student = studentService.updateStudent(id, name, age);
+        return student;
+    }
+
 
     // DELETE student based on ID
 

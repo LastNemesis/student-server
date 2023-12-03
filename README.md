@@ -53,6 +53,9 @@ This project is developed in Java 17.
      - Refactor of the READ-One method
      - Creation of getStudentById in studentResource and studentService
    - (U) Update
+     - Adding the UPDATE persisted method
+     - Adding a error-handler by returning null if entity not found
+     - curl -X PUT -i 'http://localhost:8080/api/student/update/1?name=Matt&age=23'
    - (D) Delete
 5. **Create the test unit for each of the controller methods**
 6. **Package the project in a Docker file.**

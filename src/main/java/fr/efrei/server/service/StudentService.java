@@ -32,6 +32,20 @@ public class StudentService {
     }
 
     // UPDATE Service
+    public Student updateStudent(Integer id, String name, Integer age){
+        // Getting the student
+        Student existingStudent = studentRepository.findById(id)
+                .orElse(null);
+        // Setting the found student
+        if(existingStudent!=null) {
+            existingStudent.setName(name);
+            existingStudent.setAge(age);
+            return studentRepository.save(existingStudent);
+        }
+
+        // If entity not found
+        return null;
+    }
 
     // DELETE Service
 
