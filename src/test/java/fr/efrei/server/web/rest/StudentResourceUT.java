@@ -76,4 +76,42 @@ public class StudentResourceUT {
 
     }
 
+    @Test
+    @Transactional
+    void updateStudent() throws Exception {
+
+        // Get the student
+        Student studentFound = studentRepository.findById(0).orElse(null);
+
+        // Changing the name
+        studentFound.setName("Matt");
+        studentFound.setAge(23);
+
+        // Saving into the repository
+        studentRepository.save(studentFound);
+
+        // Get the size of the database after the update
+        Student studentUpdated = studentRepository.findById(0).orElse(null);
+
+        // Checking that the update has been made
+        assertThat(studentUpdated.getName()).isEqualTo("Matt");
+        assertThat(studentUpdated.getAge()).isEqualTo(23);
+
+    }
+
+    @Test
+    @Transactional
+    void deleteStudent() throws Exception {
+
+        // Get the student
+        Student studentFound = studentRepository.findById(0).orElse(null);
+
+        // Deleting the Student from the repository
+        studentRepository.delete(studentFound);
+
+        // Testing if the size is correct
+        assertThat(studentRepository.findAll().size()).isEqualTo(expectedDatabaseSize - 1);
+
+    }
+
 }
