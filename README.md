@@ -69,6 +69,11 @@ This project is developed in Java 17.
    - updateStudent
    - deleteStudent
 6. **Package the project in a Docker file.**
+   - Creating the java archive (JAR) (_with the command: gradlew bootJar_)
+   - Building the archive from the archive (_with the command: java -jar build\libs\server.jar_)
+   - Creating the Dockerfile on root folder with the parameters
+   - Creating the Docker image (_with the command: docker build --tag=server:latest ._)
+   - Running the Docker image on port:8080 (_with the command: docker run -d -p 8080:8080 server_)
 
 # Contributing
 
