@@ -74,6 +74,7 @@ This project is developed in Java 17.
    - Creating the Dockerfile on root folder with the parameters
    - Creating the Docker image (_with the command: docker build --tag=server:latest ._)
    - Running the Docker image on port:8080 (_with the command: docker run -d -p 8080:8080 server_)
+7. **Add a font-end to the application**
 
 # Contributing
 
