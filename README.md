@@ -62,7 +62,12 @@ This project is developed in Java 17.
         - Adding the DELETE persisted method
         - Adding a error-handler by returning 0/a message if student not found
         - curl -X DELETE -i http://localhost:8080/api/student/delete/17
-5. **Create the test unit for each of the controller methods**
+5. **Create the test unit for each of the repository methods**
+   - readStudents
+   - readOneStudent
+   - createStudent
+   - updateStudent
+   - deleteStudent
 6. **Package the project in a Docker file.**
 
 # Contributing

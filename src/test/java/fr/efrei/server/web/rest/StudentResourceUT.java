@@ -46,7 +46,6 @@ public class StudentResourceUT {
         assertThat(studentFound.getId()).isEqualTo(0);
         assertThat(studentFound.getName()).isEqualTo("Matthew");
         assertThat(studentFound.getAge()).isEqualTo(22);
-
     }
 
     @Test
@@ -73,7 +72,6 @@ public class StudentResourceUT {
         assertThat(createdStudent.getId()).isEqualTo(1);
         assertThat(createdStudent.getName()).isEqualTo("Antoine");
         assertThat(createdStudent.getAge()).isEqualTo(22);
-
     }
 
     @Test
@@ -96,7 +94,6 @@ public class StudentResourceUT {
         // Checking that the update has been made
         assertThat(studentUpdated.getName()).isEqualTo("Matt");
         assertThat(studentUpdated.getAge()).isEqualTo(23);
-
     }
 
     @Test
@@ -111,7 +108,6 @@ public class StudentResourceUT {
 
         // Testing if the size is correct
         assertThat(studentRepository.findAll().size()).isEqualTo(expectedDatabaseSize - 1);
-
     }
 
 }
