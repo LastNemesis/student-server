@@ -1,0 +1,91 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /*background-color: #000;*/
+    color: #fff;
+}
+
+header {
+    background-color: #8b0000;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav {
+    background-color: #000;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #900;
+}
+
+main {
+    padding: 20px;
+    color: #000;
+}
+
+.custom-button {
+    background-color: darkred;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.intro {
+    text-align: center;
+    margin-top: 50px;
+}
+
+input {
+    width: 200px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #8b0000;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+}
+
+.custom-footer {
+    background-color: #8b0000;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
