@@ -22,12 +22,12 @@
 
     <main>
 
-        <section>
+        <section class="input-container">
             <h2> List of Students </h2>
+            <br><br>
+            <button class="custom-button" onclick="readStudents()">Get the list of students</button>
             <br>
-            <button class="custom-button">Get the list of students</button>
-
-            <div id="readStudents">
+            <div id="readStudents" class="resultContainer">
                 <!-- RESULT container -->
             </div>
 
@@ -35,14 +35,14 @@
 
         <hr>
 
-        <section>
+        <section class="input-container">
             <h2> Search for a Student </h2>
+            <br><br>
+            <b> Student ID:</b> <input type="text" id="StudentID-1" placeholder="Enter the Student ID (Integer)">
             <br>
-            Student ID: <input type="text" placeholder="Enter the Student ID (Integer)">
+            <button class="custom-button" onclick="readOneStudent()">Search for a Student</button>
             <br>
-            <button class="custom-button">Search for a Student</button>
-
-            <div id="readOneStudent">
+            <div id="readOneStudent" class="resultContainer">
                 <!-- RESULT container -->
             </div>
 
@@ -50,16 +50,16 @@
 
         <hr>
 
-        <section>
+        <section class="input-container">
             <h2> Add a Student </h2>
+            <br><br>
+            <b> Student Name: </b> <input type="text" id="StudentName-1" placeholder="Enter the Student Name">
             <br>
-            Student Name: <input type="text" placeholder="Enter the Student Name">
+            <b> Student Age:</b> <input type="text" id="StudentAge-1"  placeholder="Enter the Student Age">
             <br>
-            Student Age: <input type="text" placeholder="Enter the Student Age">
+            <button class="custom-button">Add the Student with the information given</button>
             <br>
-            <button class="custom-button">Get the list of students</button>
-
-            <div id="createStudent">
+            <div id="createStudent" class="resultContainer">
                 <!-- RESULT container -->
             </div>
 
@@ -67,17 +67,18 @@
 
         <hr>
 
-        <section>
+        <section class="input-container">
             <h2> Update a Student Information </h2>
-            Student ID: <input type="text" placeholder="Enter the Student ID (Integer)">
+            <br><br>
+            <b> Student ID:</b> <input type="text" id="StudentID-2" placeholder="Enter the Student ID (Integer)">
             <br>
-            Student Name: <input type="text" placeholder="Enter the Student Name">
+            <b> Student Name: </b> <input type="text" id="StudentName-2" placeholder="Enter the Student Name">
             <br>
-            Student Age: <input type="text" placeholder="Enter the Student Age">
+            <b> Student Age:</b> <input type="text" id="StudentAge-2" placeholder="Enter the Student Age">
             <br>
-            <button class="custom-button">Get the list of students</button>
-
-            <div id="updateStudent">
+            <button class="custom-button">Update the Student with the information given</button>
+            <br>
+            <div id="updateStudent" class="resultContainer">
                 <!-- RESULT container -->
             </div>
 
@@ -85,24 +86,27 @@
 
         <hr>
 
-        <section>
+        <section class="input-container">
             <h2> Delete a Student </h2>
+            <br><br>
+            <b> Student ID:</b> <input type="text" id="StudentID-3" placeholder="Enter the Student ID (Integer)">
             <br>
-            Student ID: <input type="text" placeholder="Enter the Student ID (Integer)">
+            <button class="custom-button">Delete the referenced Student</button>
             <br>
-            <button class="custom-button">Search for a Student</button>
-
-            <div id="deleteStudent">
+            <div id="deleteStudent" class="resultContainer">
                 <!-- RESULT container -->
             </div>
 
         </section>
+
 
     </main>
 
     <footer>
         <p>&copy; 2023 Student Web Application - Matthew DAVID M2-DT</p>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
