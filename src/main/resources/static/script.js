@@ -128,7 +128,7 @@ function readOneStudent(){
 
     // Verification
     if (inputValue == -1){
-        document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type<div>"
+        document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing ID<div>"
         return;
     }
 

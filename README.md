@@ -78,6 +78,7 @@ This project is developed in Java 17.
    - Creation of HTML pages
      - index.html (HomePage)
      - students.html (Student Administration page)
+       - Adding the CRUD methods
      - grades.html (Grades Administration page)
      - courses.html (Courses Administration page)
      - references.html (References page)
