@@ -94,6 +94,10 @@ section {
     font-size: small;
 }
 
+.response {
+    font-size: smaller;
+}
+
 footer {
     background-color: #8b0000;
     text-align: center;

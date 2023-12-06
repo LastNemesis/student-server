@@ -49,19 +49,33 @@ function createTableFromJSONList(divName, jsonList){
     div.appendChild(table);
 }
 
-function validateInput(inputName) {
+function validateInput(inputName, type) {
+    // Getting the content of input
     const inputElement = document.getElementById(inputName);
     const inputValue = inputElement.value.trim();
 
-    // Regular expression to match integers (positive or negative)
-    const intPattern = /^\d+$/;
+    if (type == "int"){
+        // Regular expression to match integers (positive or negative)
+        const intPattern = /^\d+$/;
 
-    if (intPattern.test(inputValue)) {
-        // Validating input
-        return inputValue;
-    } else {
-        // Refusing input
-        return -1;
+        if (intPattern.test(inputValue)) {
+            // Validating input
+            return inputValue;
+        } else {
+            // Refusing input
+            return -1;
+        }
+    }else{
+        // Regular expression to match integers (positive or negative)
+        const intPattern = /^[A-Za-z]+$/;
+
+        if (intPattern.test(inputValue)) {
+            // Validating input
+            return inputValue;
+        } else {
+            // Refusing input
+            return -1;
+        }
     }
 }
 
@@ -110,6 +124,9 @@ function readStudents(){
             console.error('Error:', error) ;
     })
 
+    // Closing the divider
+    //document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + "</div>";
+
     // Adding a format style
     document.getElementById(divName).classList.add('custom-div');
 
@@ -124,7 +141,7 @@ function readOneStudent(){
     document.getElementById(divName).innerHTML = "<u>Here is the found Student:</u><br><br>" ;
 
     // Get the ID of the Student
-    const inputValue = validateInput("StudentID-1");
+    const inputValue = validateInput("StudentID-1", "int");
 
     // Verification
     if (inputValue == -1){
@@ -144,13 +161,75 @@ function readOneStudent(){
         console.error('Error:', error) ;
     })
 
+    // Closing the divider
+    //document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + "</div>";
+
     // Adding a format style
     document.getElementById(divName).classList.add('custom-div');
 }
 
 // Create a student and putting it inside the database (POST)
 function createStudent(){
+    // Name of the result div
+    const divName = 'createStudent';
 
+    // Introduction sentence
+    document.getElementById(divName).innerHTML = "<u>Here is the created student server-response:</u><br><br>" ;
+
+    // Get the Name of the Student
+    const inputName = validateInput("StudentName-1", "str");
+
+    // Get the Age of the Student
+    const inputAge = validateInput("StudentAge-1", "int");
+
+    // Verification (Name)
+    if (inputName == -1){
+        document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing Name<div>"
+        return;
+    }
+
+    // Verification (Age)
+    if (inputAge == -1){
+        document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing Age<div>"
+        return;
+    }
+
+    // Creating the fetch request
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Specify content type as JSON
+        }
+    }
+
+    // Response variable
+    let response = "";
+
+    // Making the fetch request
+    fetch(apiEndpoint + "/student/create?name=" + inputName + "&age=" + inputAge, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        }).then(data => {
+            // Response OK
+            //response = response + "<div class='response'>";
+            //response = response + "<b>The new student has the following information:</b><br>";
+            response = response + "<b><u>Student ID:</b></u> " + data.id + " ;<br>";
+            response = response + "<b><u>Student name:</b></u> " + data.name + " ;<br>";
+            response = response + "<b><u>Student age:</b></u> " + data.age + " ;<br></div>";
+            //response = response + "</div>";
+            document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + response;
+        }).catch(error => {
+            // Handle errors here
+            response = error;
+            console.error('There was a problem with the POST request:', error);
+            document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + error;
+        });
+
+    // Adding the format of the response div
+    document.getElementById(divName).classList.add('custom-div');
 }
 
 // Update a student based on ID (UPDATE)
@@ -166,10 +245,10 @@ function deleteStudent(){
 // Event handlers
     // ID
 document.getElementById('StudentID-1').addEventListener('keypress', handleEnter);
-document.getElementById('StudentID-3').addEventListener('keypress', handleEnter('keypress', 4));
+document.getElementById('StudentID-3').addEventListener('keypress', handleEnter);
     // Age
-document.getElementById('StudentAge-1').addEventListener('keypress', handleEnter('keypress', 2));
-document.getElementById('StudentAge-2').addEventListener('keypress', handleEnter('keypress', 4));
+document.getElementById('StudentAge-1').addEventListener('keypress', handleEnter);
+document.getElementById('StudentAge-2').addEventListener('keypress', handleEnter);
 
 // = = = = = = = = [GRADES] = = = = = = = = //
 

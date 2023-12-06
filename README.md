@@ -85,6 +85,7 @@ This project is developed in Java 17.
    - Creation of a global use CSS page
    - Creation of a global use JS page
    - Creation of a CORS Configuration for the fetch API (/!\ Application needs to run on port 8080)
+   - Adding the Favicon for the web application
 
 # Contributing
 
