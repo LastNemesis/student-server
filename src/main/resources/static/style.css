@@ -1,0 +1,138 @@
+body, h1, h2, h3, p, ul {
+    margin: 0 0 2px 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+header {
+    background-color: #8b0000;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav {
+    background-color: #000;
+}
+
+ul {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #900;
+}
+
+main {
+    padding: 20px;
+    color: #000;
+}
+
+.custom-button {
+    background-color: darkred;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-div{
+    border: 2px solid #900;
+    border-radius: 4px;
+}
+
+.resultContainer {
+    margin: 5px;
+    padding: 5px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"] {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.intro {
+    text-align: center;
+    margin-top: 30px;
+    border: 3px solid black;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.error {
+    color: red;
+    font-size: small;
+}
+
+.response {
+    font-size: smaller;
+}
+
+.styled-table-container {
+    border: 1px solid #900;
+    border-radius: 10px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.styled-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.styled-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+footer {
+    background-color: #8b0000;
+    text-align: center;
+    color: #fff;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}
