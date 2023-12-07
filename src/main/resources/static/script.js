@@ -10,6 +10,9 @@ function createTableFromJSONList(divName, jsonList){
     const table = document.createElement('table');
     const headerRow = table.insertRow(0);
 
+    // Adding the class
+    table.classList.add('styled-table');
+
     // Checking if it is a JSON List or a JSON
     if(jsonList[0] != undefined){
         // Creating table header
@@ -47,6 +50,8 @@ function createTableFromJSONList(divName, jsonList){
 
     // Adding the created table to the divider
     div.appendChild(table);
+
+    div.classList.add('custom-div');
 }
 
 function validateInput(inputName, type) {
@@ -103,7 +108,6 @@ function handleEnter(event) {
     }
 }
 
-
 // = = = = = = = = [STUDENTS] = = = = = = = = //
 // Read the list of students (GET)
 function readStudents(){
@@ -111,14 +115,15 @@ function readStudents(){
     const divName = 'readStudents';
 
     // Introduction sentence
-    document.getElementById(divName).innerHTML = "<u>Here is the list of students:</u><br><br>" ;
+    document.getElementById(divName).innerHTML = "<u><b>Here is the list of students:</u></b><br><br><div id='" + divName + "-t'></div>" ;
 
     // Get the information from the API
     fetch(apiEndpoint + "/students")
         .then(response => response.json())
         .then(data=> {
-            // Calling function to transform JSON into Table
-            createTableFromJSONList(divName, data);
+
+            createTableFromJSONList(divName + "-t", data);
+
         }).catch(error => {
             // Error-handler
             console.error('Error:', error) ;
@@ -138,23 +143,23 @@ function readOneStudent(){
     const divName = 'readOneStudent';
 
     // Introduction sentence
-    document.getElementById(divName).innerHTML = "<u>Here is the found Student:</u><br><br>" ;
+    document.getElementById(divName).innerHTML = "<u><b>Here is the found Student:</u></b><br><br><div id='" + divName + "-t'></div>" ;
 
     // Get the ID of the Student
-    const inputValue = validateInput("StudentID-1", "int");
+    const inputID = validateInput("StudentID-1", "int");
 
     // Verification
-    if (inputValue == -1){
+    if (inputID == -1){
         document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing ID<div>"
         return;
     }
 
     // Get the information from the API
-    fetch(apiEndpoint + "/students/" + inputValue)
+    fetch(apiEndpoint + "/students/" + inputID)
         .then(response => response.json())
         .then(data=> {
 
-            createTableFromJSONList(divName, data);
+            createTableFromJSONList(divName + "-t", data);
 
         }).catch(error => {
         // Error-handler
@@ -174,7 +179,7 @@ function createStudent(){
     const divName = 'createStudent';
 
     // Introduction sentence
-    document.getElementById(divName).innerHTML = "<u>Here is the created student server-response:</u><br><br>" ;
+    document.getElementById(divName).innerHTML = "<u><b>Here is the created student server-response:</u></b><br><br><div id='" + divName + "-t'></div>" ;
 
     // Get the Name of the Student
     const inputName = validateInput("StudentName-1", "str");
@@ -196,10 +201,7 @@ function createStudent(){
 
     // Creating the fetch request
     let options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json' // Specify content type as JSON
-        }
+        method: 'POST'
     }
 
     // Response variable
@@ -213,14 +215,9 @@ function createStudent(){
             }
             return response.json();
         }).then(data => {
-            // Response OK
-            //response = response + "<div class='response'>";
-            //response = response + "<b>The new student has the following information:</b><br>";
-            response = response + "<b><u>Student ID:</b></u> " + data.id + " ;<br>";
-            response = response + "<b><u>Student name:</b></u> " + data.name + " ;<br>";
-            response = response + "<b><u>Student age:</b></u> " + data.age + " ;<br></div>";
-            //response = response + "</div>";
-            document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + response;
+
+            createTableFromJSONList(divName + "-t", data)
+
         }).catch(error => {
             // Handle errors here
             response = error;
@@ -234,12 +231,113 @@ function createStudent(){
 
 // Update a student based on ID (UPDATE)
 function updateStudent(){
+    // Name of the result div
+    const divName = 'updateStudent';
 
+    // Introduction sentence
+    document.getElementById(divName).innerHTML = "<u><b>Here is the update student server-response:</u></b><br><br><div id='" + divName + "-t'></div>" ;
+
+    // Get the ID of the Student
+    const inputID = validateInput("StudentID-2", "int");
+
+    // Get the Name of the Student
+    const inputName = validateInput("StudentName-2", "str");
+
+    // Get the Age of the Student
+    const inputAge = validateInput("StudentAge-2", "int");
+
+    // Verification
+    if (inputID == -1){
+        document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing ID<div>"
+        return;
+    }
+
+    // Verification (Name)
+    if (inputName == -1){
+        document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing Name<div>"
+        return;
+    }
+
+    // Verification (Age)
+    if (inputAge == -1){
+        document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing Age<div>"
+        return;
+    }
+
+    // Creating the fetch request
+    let options = {
+        method: 'PUT'
+    }
+
+    // Response variable
+    let response = "";
+
+    // Making the fetch request
+    fetch(apiEndpoint + "/student/update/" + inputID +"?name=" + inputName + "&age=" + inputAge, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        }).then(data => {
+
+            createTableFromJSONList(divName + "-t", data)
+
+        }).catch(error => {
+            // Handle errors here
+            response = error;
+            console.error('There was a problem with the PUT request:', error);
+            document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + error;
+        });
+
+    // Adding the format of the response div
+    document.getElementById(divName).classList.add('custom-div');
 }
 
 // Delete a student based on
 function deleteStudent(){
+    // Name of the result div
+    const divName = 'deleteStudent';
 
+    // Introduction sentence
+    document.getElementById(divName).innerHTML = "<u><b>Here is the update student server-response:</u></b><br><br>" ;
+
+    // Get the ID of the Student
+    const inputID = validateInput("StudentID-3", "int");
+
+    // Verification
+    if (inputID == -1){
+        document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing ID<div>"
+        return;
+    }
+
+    // Creating the fetch request
+    let options = {
+        method: 'DELETE'
+    }
+
+    // Response variable
+    let response = "";
+
+    // Making the fetch request
+    fetch(apiEndpoint + "/student/delete/" + inputID, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+        }).then(data => {
+        // Response OK
+        response = response + "<b>The Student with the ID: <i>" + inputID + "</i> has been deleted.</b>";
+        document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + response;
+    }).catch(error => {
+        // Handle errors here
+        response = error;
+        console.error('There was a problem with the DELETE request:', error);
+        document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + error;
+    });
+
+    // Adding the format of the response div
+    document.getElementById(divName).classList.add('custom-div');
 }
 
 // Event handlers

@@ -16,7 +16,11 @@ This is the backend of the graded Cloud Integration Project
 
 This project goal is to have a web service able to create, read, update and delete student of the database.
 
-This project is developed in Java 17.
+This project is developed in Java 17 with Gradle.
+
+### How to use
+Run the project with Gradle (Gradle bootRun) or run the Docker file.
+To access the front-end, go to 'http://locahost:' + running port of the application (by default 8080).
 
 # Features
 

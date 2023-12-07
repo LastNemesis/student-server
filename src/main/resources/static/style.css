@@ -1,13 +1,14 @@
-/* Reset default margin and padding */
 body, h1, h2, h3, p, ul {
-    margin: 0;
+    margin: 0 0 2px 0;
     padding: 0;
 }
 
 body {
     font-family: Arial, sans-serif;
-    /*background-color: #000;*/
     color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 header {
@@ -56,7 +57,7 @@ main {
 }
 
 .custom-div{
-    border: 1px solid grey;
+    border: 2px solid #900;
     border-radius: 4px;
 }
 
@@ -98,22 +99,40 @@ section {
     font-size: smaller;
 }
 
+.styled-table-container {
+    border: 1px solid #900;
+    border-radius: 10px;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.styled-table th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.styled-table td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
 footer {
     background-color: #8b0000;
     text-align: center;
     color: #fff;
     padding: 10px 0;
-    /*position: absolute;*/
-    bottom: 0;
-    width: 100%;
-}
-
-.custom-footer {
-    background-color: #8b0000;
-    text-align: center;
-    color: #fff;
-    padding: 10px 0;
-    position: absolute;
     bottom: 0;
     width: 100%;
 }
