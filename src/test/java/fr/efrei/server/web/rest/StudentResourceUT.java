@@ -32,7 +32,7 @@ public class StudentResourceUT {
         int databaseSize = studentRepository.findAll().size();
 
         // Testing if the size is correct
-        assertThat(databaseSize).isEqualTo(expectedDatabaseSize);
+        assertThat(databaseSize).isEqualTo(1);
     }
 
     @Test

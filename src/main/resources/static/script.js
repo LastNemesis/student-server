@@ -14,7 +14,7 @@ function createTableFromJSONList(divName, jsonList){
     table.classList.add('styled-table');
 
     // Checking if it is a JSON List or a JSON
-    if(jsonList[0] != undefined){
+    if(jsonList[0] !== undefined){
         // Creating table header
         for (let key in jsonList[0]) {
             const headerCell = document.createElement('th');
@@ -26,7 +26,7 @@ function createTableFromJSONList(divName, jsonList){
         for (let obj of jsonList) {
             const row = table.insertRow();
             for (let key in obj) {
-                if (obj['name'] != 'ERROR'){
+                if (obj['name'] !== 'ERROR'){
                     const cell = row.insertCell();
                     cell.textContent = obj[key];
                 }
@@ -59,7 +59,7 @@ function validateInput(inputName, type) {
     const inputElement = document.getElementById(inputName);
     const inputValue = inputElement.value.trim();
 
-    if (type == "int"){
+    if (type === "int"){
         // Regular expression to match integers (positive or negative)
         const intPattern = /^\d+$/;
 
@@ -100,7 +100,7 @@ function handleEnter(event) {
             case "StudentAge-2":
                 updateStudent();
                 break;
-            case "StudentID-4":
+            case "StudentID-3":
                 deleteStudent();
                 break;
             default:
@@ -149,7 +149,7 @@ function readOneStudent(){
     const inputID = validateInput("StudentID-1", "int");
 
     // Verification
-    if (inputID == -1){
+    if (inputID === -1){
         document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing ID<div>"
         return;
     }
@@ -188,13 +188,13 @@ function createStudent(){
     const inputAge = validateInput("StudentAge-1", "int");
 
     // Verification (Name)
-    if (inputName == -1){
+    if (inputName === -1){
         document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing Name<div>"
         return;
     }
 
     // Verification (Age)
-    if (inputAge == -1){
+    if (inputAge === -1){
         document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing Age<div>"
         return;
     }
@@ -247,19 +247,19 @@ function updateStudent(){
     const inputAge = validateInput("StudentAge-2", "int");
 
     // Verification
-    if (inputID == -1){
+    if (inputID === -1){
         document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing ID<div>"
         return;
     }
 
     // Verification (Name)
-    if (inputName == -1){
+    if (inputName === -1){
         document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing Name<div>"
         return;
     }
 
     // Verification (Age)
-    if (inputAge == -1){
+    if (inputAge === -1){
         document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing Age<div>"
         return;
     }
@@ -278,10 +278,13 @@ function updateStudent(){
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json();
         }).then(data => {
 
-            createTableFromJSONList(divName + "-t", data)
+            if(data !== undefined){
+                createTableFromJSONList(divName + "-t", data);
+            }else{
+                document.getElementById(divName).innerHTML = document.getElementById(divName).innerHTML + "<div class='error'>The Student ID is not valid. Try again</div>";
+            }
 
         }).catch(error => {
             // Handle errors here
@@ -306,7 +309,7 @@ function deleteStudent(){
     const inputID = validateInput("StudentID-3", "int");
 
     // Verification
-    if (inputID == -1){
+    if (inputID === -1){
         document.getElementById(divName).innerHTML = "<div class='error'>Incorrect type or missing ID<div>"
         return;
     }
