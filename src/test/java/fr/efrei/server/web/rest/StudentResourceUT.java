@@ -22,7 +22,7 @@ public class StudentResourceUT {
     private StudentRepository studentRepository;
 
     // Setting global expectation
-    private int expectedDatabaseSize = 1;
+    private int expectedDatabaseSize = 2;
 
     @Test
     @Transactional
@@ -32,7 +32,7 @@ public class StudentResourceUT {
         int databaseSize = studentRepository.findAll().size();
 
         // Testing if the size is correct
-        assertThat(databaseSize).isEqualTo(1);
+        assertThat(databaseSize).isEqualTo(expectedDatabaseSize);
     }
 
     @Test
@@ -44,8 +44,8 @@ public class StudentResourceUT {
 
         // Checking that the student we found is correct
         assertThat(studentFound.getId()).isEqualTo(0);
-        assertThat(studentFound.getName()).isEqualTo("Matthew");
-        assertThat(studentFound.getAge()).isEqualTo(22);
+        assertThat(studentFound.getName()).isEqualTo("ERROR-STUDENT");
+        assertThat(studentFound.getAge()).isEqualTo(0);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class StudentResourceUT {
         assertThat(studentRepository.findAll().size()).isEqualTo(size + 1);
 
         // Checking that the second student is the one we created
-        assertThat(createdStudent.getId()).isEqualTo(1);
+        assertThat(createdStudent.getId()).isEqualTo(2);
         assertThat(createdStudent.getName()).isEqualTo("Antoine");
         assertThat(createdStudent.getAge()).isEqualTo(22);
     }
@@ -101,7 +101,7 @@ public class StudentResourceUT {
     void deleteStudent() throws Exception {
 
         // Get the student
-        Student studentFound = studentRepository.findById(0).orElse(null);
+        Student studentFound = studentRepository.findById(1).orElse(null);
 
         // Deleting the Student from the repository
         studentRepository.delete(studentFound);
