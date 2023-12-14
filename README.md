@@ -91,6 +91,12 @@ To access the front-end, go to 'http://locahost:' + running port of the applicat
    - Creation of a CORS Configuration for the fetch API (/!\ Application needs to run on port 8080)
    - Adding the Favicon for the web application
    - Recreating the Docker executable
+8. **Adding supplementary content**
+   - Adding Courses and Grades entities;
+   - Modifying the database schema ;
+   - Updating the API ;
+   - Updating the front-end.
+
 
 # Contributing
 
