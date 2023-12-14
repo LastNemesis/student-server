@@ -2,7 +2,6 @@ package fr.efrei.server.service;
 
 import fr.efrei.server.domain.Student;
 import fr.efrei.server.repository.StudentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -63,7 +62,5 @@ public class StudentService {
         // If student not found
         return 0;
     }
-
-
 
 }
