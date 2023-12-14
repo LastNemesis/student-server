@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Web Application</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <h1>Student Web Application - Administration Teacher</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home page</a></li>
+                <li><a href="students.html">Students</a></li>
+                <li><a href="teachers.html">Teachers</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="grades.html">Grades</a></li>
+                <li><a href="references.html">References and others</a></li>
+            </ul>
+        </nav>
+
+        <main>
+
+            <section class="input-container">
+                <h2> List of Teachers </h2>
+                <br><br>
+                <button class="custom-button" onclick="readTeachers()">Get the list of teachers</button>
+                <br>
+                <div id="readTeachers" class="resultContainer">
+                    <!-- RESULT container -->
+                </div>
+            </section>
+
+            <hr>
+
+            <section class="input-container">
+                <h2> Search for a Student </h2>
+                <br><br>
+                <b> Teacher ID:</b> <input type="text" id="TeacherID-1" placeholder="Enter the Teacher ID (Integer)">
+                <br>
+                <button class="custom-button" onclick="readOneStudent()">Search for a Student</button>
+                <br>
+                <div id="readOneTeacher" class="resultContainer">
+                    <!-- RESULT container -->
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&emsp;&copy; 2023 Student Web Application - Matthew DAVID M2-DT&emsp;</p>
+            <p><i>https://github.com/LastNemesis/student-server</i></p>
+        </footer>
+
+        <script src="javascript/teacherScript.js"></script>
+
+    </body>
+</html>

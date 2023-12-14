@@ -350,8 +350,3 @@ document.getElementById('StudentID-3').addEventListener('keypress', handleEnter)
     // Age
 document.getElementById('StudentAge-1').addEventListener('keypress', handleEnter);
 document.getElementById('StudentAge-2').addEventListener('keypress', handleEnter);
-
-// = = = = = = = = [GRADES] = = = = = = = = //
-
-
-// = = = = = = = = [COURSES] = = = = = = = = //
